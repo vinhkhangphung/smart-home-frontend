@@ -7,8 +7,8 @@ export default function RangeSlider({ label, value, setvalue }) {
         min="0"
         id={label}
         max="100"
-        value={value}
-        onChange={(event) => setvalue(parseInt(event.target.value))}
+        defaultValue={value}
+        onDrag={(event) => setvalue(parseInt(event.target.value))}
       />
       <label htmlFor={label}>{label}</label>
     </div>
