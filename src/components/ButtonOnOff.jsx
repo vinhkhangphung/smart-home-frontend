@@ -2,8 +2,7 @@ export default function ButtonOnOff({ handleClick, lightOn }) {
   return (
     <div className="text-white">
       <label className="swap">
-        <input type="checkbox" onClick={handleClick} />
-
+        <input type="checkbox" onClick={handleClick} checked={lightOn} />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="128"

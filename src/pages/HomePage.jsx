@@ -72,7 +72,7 @@ const HomePage = () => {
       labels: {
         style: {
           fontSize: "14px",
-          colors: Array(block).fill("#FFFFFF"),
+          colors: Array(block).fill("#AAAAAA"),
         },
       },
     },
@@ -87,7 +87,7 @@ const HomePage = () => {
       labels: {
         style: {
           fontSize: "14px",
-          colors: Array(block).fill("#FFFFFF"),
+          colors: Array(block).fill("#AAAAAA"),
         },
         formatter: (value) => {
           return value + " °C";
@@ -126,25 +126,25 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="mx-auto py-8 bg-gray-800 flex w-full">
+      <div className="mx-auto py-2 bg-primary-800 flex w-full h-[88vh]">
         <SideBar />
-        <div className="w-full bg-primary ml-4 rounded-sm border-0">
+        <div className="w-full bg-primary-900 ml-4 rounded-sm border-0">
           <div className="flex justify-center items-center stats rounded-none bg-primary-content">
-            <div className="w-48 h-48 m-4 mr-8 text-center stat bg-secondary rounded-md">
+            <div className="w-48 h-48 m-4 mr-8 text-center stat bg-secondary-content rounded-md">
               <div className="stat-title text-2xl h-fit">Temperatures</div>
               <div className="stat-value text-4xl h-fit">
                 {latestTemp + " °C"}
               </div>
               <div className="stat-desc h-fit">21% more than last month</div>
             </div>
-            <div className="w-48 h-48 m-4 ml-8 text-center stat bg-secondary rounded-md">
+            <div className="w-48 h-48 m-4 ml-8 text-center stat bg-secondary-content rounded-md">
               <div className="stat-title text-2xl">Humidity</div>
               <div className="stat-value text-4xl">
                 {(Math.random() * 100).toFixed(0) + " %"}
               </div>
               <div className="stat-desc">21% more than last month</div>
             </div>
-            <div className="w-48 h-48 m-4 ml-8 text-center stat bg-secondary rounded-md">
+            <div className="w-48 h-48 m-4 ml-8 text-center stat bg-secondary-content rounded-md">
               <div className="stat-title text-2xl">Lighting</div>
               <div className="stat-value text-4xl">
                 {Math.floor(Math.random() * (500 - 300 + 1)) + 300 + " lux"}
@@ -152,15 +152,18 @@ const HomePage = () => {
               <div className="stat-desc">21% more than last month</div>
             </div>
           </div>
-          <ReactApexChart
-            options={options}
-            series={series}
-            type="line"
-            height={350}
-          />
+          <div>
+            <ReactApexChart
+              options={options}
+              series={series}
+              type="line"
+              height={350}
+            />
+          </div>
+
           <div>
             <select
-              className="bg-slate-500 border-0 rounded-sm focus-visible:outline-double outline-gray-400"
+              className="bg-accent border-0 rounded-sm focus-visible:outline-double outline-gray-400"
               name="blockSize"
               id="blockSize"
               value={block}

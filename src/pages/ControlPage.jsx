@@ -24,6 +24,9 @@ export default function ControlPage() {
   const [isDragging, setIsDragging] = useState(false);
   const [lightColor, setLightColor] = useState("blue");
 
+  const [fanOn, setFanOn] = useState(false);
+  const [fanIntensity, setFanIntensity] = useState(50);
+
   /* TODO: fetch lightOn status and lightIntensity from the server */
   useEffect(() => {
     const fetchData = async () => {
@@ -37,9 +40,13 @@ export default function ControlPage() {
     fetchData();
   }, []);
 
-  const handleClick = () => {
+  const handleClickLight = () => {
     // TODO: send lightOn status to the server
     setLightOn(!lightOn);
+  };
+
+  const handleClickFan = () => {
+    setFanOn(!fanOn);
   };
 
   const handleDragStart = () => {
@@ -59,6 +66,10 @@ export default function ControlPage() {
     console.log("Light intensity sent: ", lightIntensity);
   };
 
+  const sendFanIntensity = () => {
+    console.log("Fan intensity sent: ", fanIntensity);
+  };
+
   const handleRadioChange = (event) => {
     setLightColor(event.target.value);
     // TODO: send lightColor to the server
@@ -66,11 +77,11 @@ export default function ControlPage() {
 
   return (
     <>
-      <div className="mx-auto py-8 bg-gray-800 flex w-full">
+      <div className="mx-auto py-8 bg-gray-800 flex w-full h-[85vh]">
         <SideBar />
         <div className="w-full bg-primary ml-4 py-4 rounded-sm border-0 text-white flex text-center">
-          <div className="w-1/3">
-            <ButtonOnOff handleClick={handleClick} lightOn={lightOn} />
+          <div className="w-1/3 pr-16">
+            <ButtonOnOff handleClick={handleClickLight} lightOn={lightOn} />
             <RangeSlider
               slidername={"Brightness"}
               lightValue={lightIntensity}
@@ -83,6 +94,17 @@ export default function ControlPage() {
               lightColor={lightColor}
               handleRadioChange={handleRadioChange}
               lightOn={lightOn}
+            />
+          </div>
+          <div className="pr-16">
+            <ButtonOnOff handleClick={handleClickFan} />
+            <RangeSlider
+              slidername={"Fan intensity"}
+              lightValue={fanIntensity}
+              setlightValue={setFanIntensity}
+              mouseDown={handleDragStart}
+              mouseUp={() => handleDragEnd(sendFanIntensity)}
+              enable={fanOn}
             />
           </div>
           <Numpad />
