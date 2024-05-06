@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 export default function SideBar() {
   return (
-    <div className="w-60 bg-primary text-white">
+    <div className="w-60 bg-primary-content text-black">
       <ul className="pl-2 pr-4 text-center justify-start">
         <li className="my-4">
           <Link

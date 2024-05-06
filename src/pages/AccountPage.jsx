@@ -1,67 +1,48 @@
 import React, { useState } from "react";
 import SideBar from "../components/SideBar";
+import { useAuth } from "../context/AuthContext";
 
 const AccountPage = () => {
-  const [accountInfo, setAccountInfo] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setAccountInfo((prevInfo) => ({
-      ...prevInfo,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your logic to update the account information here
-    console.log("Account info:", accountInfo);
-  };
-
+  const { user } = useAuth();
   return (
     <>
-      <div className="mx-auto py-8 bg-gray-800 flex w-full">
+      <div className="mx-auto py-8 bg-gray-800 flex w-full h-[85vh]">
         <SideBar />
-        <div className="w-full bg-primary ml-4 rounded-sm border-0 text-white">
-          <div>
-            <h1>Account Page</h1>
-            <form onSubmit={handleSubmit}>
-              <label>
-                Name:
-                <input
-                  type="text"
-                  name="name"
-                  value={accountInfo.name}
-                  onChange={handleChange}
-                />
-              </label>
-              <br />
-              <label>
-                Email:
-                <input
-                  type="email"
-                  name="email"
-                  value={accountInfo.email}
-                  onChange={handleChange}
-                />
-              </label>
-              <br />
-              <label>
-                Password:
-                <input
-                  type="password"
-                  name="password"
-                  value={accountInfo.password}
-                  onChange={handleChange}
-                />
-              </label>
-              <br />
-              <button type="submit">Save</button>
-            </form>
+        <div className="w-full bg-primary ml-4 rounded-sm border-0 text-white space-y-4 pl-4 pt-4">
+          <div className="avatar">
+            <div className="w-36 mask mask-squircle">
+              <img src="https://picsum.photos/200/300" />
+            </div>
+          </div>
+          <div className="collapse bg-slate-700">
+            <input type="radio" name="my-accordion-1" defaultChecked />
+            <div className="collapse-title text-xl font-medium">Name</div>
+            <div className="collapse-content">
+              <div className="font-semibold text-lg bg-slate-400 w-fit p-2 rounded-md text-gray-700">
+                {user.username}
+              </div>
+              <button className="mt-4">edit</button>
+            </div>
+          </div>
+          <div className="collapse bg-slate-600">
+            <input type="radio" name="my-accordion-1" />
+            <div className="collapse-title text-xl font-medium">Email</div>
+            <div className="collapse-content">
+              <div className="font-semibold text-lg bg-slate-400 w-fit p-2 rounded-md text-gray-700">
+                {user.username}
+              </div>
+              <button className="mt-4">edit</button>
+            </div>
+          </div>
+          <div className="collapse bg-slate-500">
+            <input type="radio" name="my-accordion-1" />
+            <div className="collapse-title text-xl font-medium">Password</div>
+            <div className="collapse-content">
+              <div className="font-semibold text-lg bg-slate-400 w-fit p-2 rounded-md text-gray-700">
+                {user.password}
+              </div>
+              <button className="mt-4">edit</button>
+            </div>
           </div>
         </div>
       </div>

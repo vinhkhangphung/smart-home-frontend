@@ -1,75 +1,33 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import './css/LandingPage.Module.css'
+import React from "react";
+import coverImage from "../assets/cover.jpg"; // Importing the image
 
-const Login = (props) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [emailError, setEmailError] = useState('')
-  const [passwordError, setPasswordError] = useState('')
-
-  const navigate = useNavigate()
-
-  const onButtonClick = () => {
-    // Set initial error values to empty
-    setEmailError('')
-    setPasswordError('')
-  
-    // Check if the user has entered both fields correctly
-    if ('' === email) {
-      setEmailError('Please enter your email')
-      return
-    }
-  
-    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-      setEmailError('Please enter a valid email')
-      return
-    }
-  
-    if ('' === password) {
-      setPasswordError('Please enter a password')
-      return
-    }
-  
-    if (password.length < 7) {
-      setPasswordError('The password must be 8 characters or longer')
-      return
-    }
-  
-    // Authentication calls will be made here...
-  }
-
+export default function LandingPage() {
   return (
-    <div className={'mainContainer'}>
-      <div className={'titleContainer'}>
-        <div>Smart Home Project</div>
+    <div
+      className="bg-cover bg-center flex flex-col items-center justify-center h-[88vh] relative"
+      style={{ backgroundImage: `url(${coverImage})` }}
+    >
+      <div className="absolute inset-0 bg-zinc-700 opacity-70"></div>
+      <h1 className="text-4xl md:text-6xl font-bold text-center text-gray-200 mb-16 relative z-10">
+        Future of home automation
+      </h1>
+      <div className="text-center relative z-10">
+        <div className="text-lg md:text-xl text-gray-200 typed-out mb-12">
+          Empower your home, empower your life. Take control of your space like
+          never before.
+        </div>
       </div>
-      <br />
-      <div className={'inputContainer'}>
-        <input
-          value={email}
-          placeholder="Enter your email here"
-          onChange={(ev) => setEmail(ev.target.value)}
-          className={'inputBox'}
-        />
-        <label className="errorLabel">{emailError}</label>
+      <div className="flex items-center justify-center mb-4 relative z-10">
+        <button className="bg-primary hover:bg-accent hover:text-black text-white font-semibold py-3 px-6 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 transition duration-300 ease-in-out">
+          Get Started
+        </button>
       </div>
-      <br />
-      <div className={'inputContainer'}>
-        <input
-          value={password}
-          placeholder="Enter your password here"
-          onChange={(ev) => setPassword(ev.target.value)}
-          className={'inputBox'}
-        />
-        <label className="errorLabel">{passwordError}</label>
-      </div>
-      <br />
-      <div className={'inputContainer'}>
-        <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
-      </div>
+      <p className="text-center text-gray-100 relative z-10">
+        Not sure yet?{" "}
+        <a href="#" className="text-blue-500 hover:underline">
+          Learn More
+        </a>
+      </p>
     </div>
-  )
+  );
 }
-
-export default Login
