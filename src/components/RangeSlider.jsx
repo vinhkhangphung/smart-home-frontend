@@ -1,16 +1,27 @@
-import React from "react";
-export default function RangeSlider({ label, value, setvalue }) {
+export default function RangeSlider({
+  slidername,
+  lightValue,
+  setlightValue,
+  mouseDown,
+  mouseUp,
+  enable,
+}) {
   return (
     <div>
       <input
         type="range"
         min="0"
-        id={label}
+        id={toString(slidername)}
         max="100"
-        defaultValue={value}
-        onDrag={(event) => setvalue(parseInt(event.target.value))}
+        defaultValue={lightValue}
+        onInput={(event) => setlightValue(parseInt(event.target.value))}
+        onMouseDown={mouseDown}
+        onMouseUp={mouseUp}
+        disabled={!enable}
       />
-      <label htmlFor={label}>{label}</label>
+      <label className="block uppercase text-lg" htmlFor={toString(slidername)}>
+        {slidername}
+      </label>
     </div>
   );
 }
