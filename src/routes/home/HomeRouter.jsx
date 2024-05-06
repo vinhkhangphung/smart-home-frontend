@@ -3,6 +3,7 @@ import AboutPage from "../../pages/AboutPage";
 import HomePage from "../../pages/HomePage";
 import ControlPage from "../../pages/ControlPage";
 import AccountPage from "../../pages/AccountPage";
+import LandingPage from "../../pages/LandingPage";
 
 export default function HomeRouter() {
   return (
@@ -12,6 +13,7 @@ export default function HomeRouter() {
       <Route path="about" element={<AboutPage />} />
       <Route path="control" element={<ControlPage />} />
       <Route path="account" element={<AccountPage />} />
+      <Route path="login" element={<LandingPage/>} />
     </Routes>
   );
 }
