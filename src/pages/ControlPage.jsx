@@ -77,9 +77,9 @@ export default function ControlPage() {
 
   return (
     <>
-      <div className="mx-auto py-4 bg-slate-100 flex w-full h-[85vh] ">
+      <div className="mx-auto py-4 bg-slate-100 flex w-full h-[88vh]">
         <SideBar />
-        <div className="w-full bg-slate-200 mx-4 py-4 rounded-lg border-0 text-gray-800 flex text-center">
+        <div className="w-full bg-primary-content/50 mx-4 py-4 rounded-lg text-gray-800 flex text-center border border-solid border-gray-500/20">
           <div className="w-1/3 pr-16">
             <ButtonOnOff handleClick={handleClickLight} lightOn={lightOn} />
             <RangeSlider

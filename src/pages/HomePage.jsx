@@ -46,6 +46,7 @@ const HomePage = () => {
     }
     return timestamps;
   };
+
   const timestamps = generateTimestamps();
   const res = Array(block).fill(0);
   const count = Array(block).fill(0);
@@ -92,8 +93,8 @@ const HomePage = () => {
           fontSize: "16px",
           colors: Array(block).fill("#363d4d"),
         },
-        formatter: (value) => {
-          return value + " °C";
+        stroke: {
+          curve: "smooth",
         },
       },
     },
@@ -129,29 +130,27 @@ const HomePage = () => {
     },
   };
 
-  // -------------------------------------------------------
-
   return (
     <>
       <div className="mx-auto py-4 bg-slate-100 flex w-full h-[88vh] relative">
         <SideBar />
         <div className="w-full bg-slate-100 mx-4 rounded-sm border-0">
-          <div className="flex justify-center items-center stats bg-primary-content">
-            <div className="w-48 h-48 m-4 mr-8 text-center stat bg-secondary-content rounded-md">
+          <div className="flex justify-center items-center stats bg-primary-content border-solid border border-slate-800/10">
+            <div className="w-48 h-48 m-4 mr-8 text-center stat bg-violet-300/80 rounded-md border-double border-2 border-gray-600/10">
               <div className="stat-title text-2xl h-fit">Temperatures</div>
               <div className="stat-value text-4xl h-fit">
                 {latestTemp + " °C"}
               </div>
               <div className="stat-desc h-fit">21% more than last month</div>
             </div>
-            <div className="w-48 h-48 m-4 ml-8 text-center stat bg-secondary-content rounded-md">
+            <div className="w-48 h-48 m-4 ml-8 text-center stat bg-violet-300/80 rounded-md border-double border-2 border-gray-600/10">
               <div className="stat-title text-2xl">Humidity</div>
               <div className="stat-value text-4xl">
                 {(Math.random() * 100).toFixed(0) + " %"}
               </div>
               <div className="stat-desc">21% more than last month</div>
             </div>
-            <div className="w-48 h-48 m-4 ml-8 text-center stat bg-secondary-content rounded-md">
+            <div className="w-48 h-48 m-4 ml-8 text-center stat bg-violet-300/80 rounded-md border-double border-2 border-gray-600/10">
               <div className="stat-title text-2xl">Lighting</div>
               <div className="stat-value text-4xl">
                 {Math.floor(Math.random() * (500 - 300 + 1)) + 300 + " lux"}
@@ -167,7 +166,6 @@ const HomePage = () => {
               height={350}
             />
           </div>
-
           <div className="absolute left-58 bottom-4">
             <select
               className="bg-slate-200 border-0 rounded-sm focus-visible:outline-double outline-gray-400"
@@ -186,5 +184,7 @@ const HomePage = () => {
     </>
   );
 };
+
+// -------------------------------------------------------
 
 export default HomePage;

@@ -11,7 +11,7 @@ export default function LightColor({ lightColor, handleRadioChange, lightOn }) {
           onChange={handleRadioChange}
           disabled={!lightOn}
         />
-        <div className="text-lg">Red</div>
+        <div className="text-xl uppercase font-medium tracking-tight">Red</div>
       </div>
       <div>
         <input
@@ -23,7 +23,7 @@ export default function LightColor({ lightColor, handleRadioChange, lightOn }) {
           onChange={handleRadioChange}
           disabled={!lightOn}
         />
-        <div className="text-lg">Blue</div>
+        <div className="text-xl uppercase font-medium tracking-tight">Blue</div>
       </div>
       <div>
         <input
@@ -35,7 +35,9 @@ export default function LightColor({ lightColor, handleRadioChange, lightOn }) {
           onChange={handleRadioChange}
           disabled={!lightOn}
         />
-        <div className="text-lg">Green</div>
+        <div className="text-xl uppercase font-medium tracking-tight">
+          Green
+        </div>
       </div>
     </div>
   );

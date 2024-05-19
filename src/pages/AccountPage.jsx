@@ -6,7 +6,7 @@ const AccountPage = () => {
   const { user } = useAuth();
   return (
     <>
-      <div className="mx-auto py-4 bg-slate-100 flex w-full h-[85vh]">
+      <div className="mx-auto py-4 bg-slate-100 flex w-full h-[88vh]">
         <SideBar />
         <div className="w-full bg-slate-100 mx-4 rounded-sm border-0 text-gray-600 space-y-4 pl-4 pt-4">
           <div className="avatar w-full">
