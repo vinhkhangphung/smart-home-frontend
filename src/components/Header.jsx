@@ -15,7 +15,7 @@ export default function Header() {
   };
 
   return (
-    <div className="navbar bg-primary text-neutral-content px-4 h-[12vh]">
+    <div className="navbar bg-blue-600/[.8] text-neutral-content px-4 h-[12vh]">
       <div className="navbar-start">
         <img src={logo} alt="logo" className="h-12 mr-2" />
         <Link to={"home"} className="text-2xl font-semibold text-white">
@@ -26,7 +26,7 @@ export default function Header() {
         <ul className="menu menu-horizontal px-1 font-semibold">
           <li className="mr-4">
             <Link
-              className="text-xl text-gray-200 visited:text-gray-200 hover:text-white"
+              className="text-2xl text-gray-200 visited:text-gray-200 hover:text-white focus:text-text-gray-200 focus:bg-transparent active:bg-transparent"
               to={"home"}
             >
               Home
@@ -34,7 +34,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              className="text-xl text-gray-200 visited:text-gray-200 hover:text-white"
+              className="text-2xl text-gray-200 visited:text-gray-200 hover:text-white focus:text-text-gray-200 focus:bg-transparent"
               to={"about"}
             >
               About
@@ -51,7 +51,7 @@ export default function Header() {
             Log Out
           </a>
         ) : (
-          <a className="btn btn-primary w-20" onClick={handleLogin}>
+          <a className="btn btn-primary w-24 text-lg" onClick={handleLogin}>
             Log In
           </a>
         )}

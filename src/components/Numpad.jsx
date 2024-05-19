@@ -25,21 +25,21 @@ export default function Numpad() {
       <div className="bg-white w-full border border-slate-800 rounded-md h-12 text-slate-900 tracking-widest">
         {password}
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-2">
         <button
-          className="mx-2 my-2 p-4 border border-grey-800 rounded-md"
+          className="mx-2 my-2 p-4 border border-slate-400 rounded-md"
           onClick={() => handleNumberClick("1")}
         >
           1
         </button>
         <button
-          className="mx-2 my-2 p-4 border border-grey-800 rounded-md"
+          className="mx-2 my-2 p-4 border border-slate-400 rounded-md"
           onClick={() => handleNumberClick("2")}
         >
           2
         </button>
         <button
-          className="mx-2 my-2 p-4 border border-grey-800 rounded-md"
+          className="mx-2 my-2 p-4 border border-slate-400 rounded-md"
           onClick={() => handleNumberClick("3")}
         >
           3
@@ -47,19 +47,19 @@ export default function Numpad() {
       </div>
       <div className="flex justify-between">
         <button
-          className="mx-2 my-2 p-4 border border-grey-800 rounded-md"
+          className="mx-2 my-2 p-4 border border-slate-400 rounded-md"
           onClick={() => handleNumberClick("4")}
         >
           4
         </button>
         <button
-          className="mx-2 my-2 p-4 border border-grey-800 rounded-md"
+          className="mx-2 my-2 p-4 border border-slate-400 rounded-md"
           onClick={() => handleNumberClick("5")}
         >
           5
         </button>
         <button
-          className="mx-2 my-2 p-4 border border-grey-800 rounded-md"
+          className="mx-2 my-2 p-4 border border-slate-400 rounded-md"
           onClick={() => handleNumberClick("6")}
         >
           6
@@ -67,19 +67,19 @@ export default function Numpad() {
       </div>
       <div className="flex justify-between">
         <button
-          className="mx-2 my-2 p-4 border border-grey-800 rounded-md"
+          className="mx-2 my-2 p-4 border border-slate-400 rounded-md"
           onClick={() => handleNumberClick("7")}
         >
           7
         </button>
         <button
-          className="mx-2 my-2 p-4 border border-grey-800 rounded-md"
+          className="mx-2 my-2 p-4 border border-slate-400 rounded-md"
           onClick={() => handleNumberClick("8")}
         >
           8
         </button>
         <button
-          className="mx-2 my-2 p-4 border border-grey-800 rounded-md"
+          className="mx-2 my-2 p-4 border border-slate-400 rounded-md"
           onClick={() => handleNumberClick("9")}
         >
           9
@@ -87,7 +87,7 @@ export default function Numpad() {
       </div>
       <div className="flex justify-between relative">
         <button
-          className="mx-auto my-2 p-4 border border-grey-800 rounded-md"
+          className="mx-auto my-2 p-4 border border-slate-400 rounded-md"
           onClick={() => handleNumberClick("0")}
         >
           0

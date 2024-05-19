@@ -57,6 +57,8 @@ const HomePage = () => {
     res[i] = (res[i] / count[i]).toFixed(2);
   }
   series[0].data = res;
+
+  // OPTION FOR CHART
   const options = {
     chart: {
       type: "line",
@@ -71,8 +73,8 @@ const HomePage = () => {
       ),
       labels: {
         style: {
-          fontSize: "14px",
-          colors: Array(block).fill("#AAAAAA"),
+          fontSize: "16px",
+          colors: Array(block).fill("#363d4d"),
         },
       },
     },
@@ -81,18 +83,23 @@ const HomePage = () => {
     },
     markers: {
       size: 5,
+      colors: "#546db0",
     },
     yaxis: {
       tickAmount: 6,
       labels: {
         style: {
-          fontSize: "14px",
-          colors: Array(block).fill("#AAAAAA"),
+          fontSize: "16px",
+          colors: Array(block).fill("#363d4d"),
         },
         formatter: (value) => {
           return value + " °C";
         },
       },
+    },
+    grid: {
+      borderColor: "#727b94", // Set your desired color for the grid lines here
+      strokeDashArray: 0, // This is optional, use it if you want solid lines
     },
     fill: {
       type: "gradient",
@@ -126,10 +133,10 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="mx-auto py-2 bg-primary-800 flex w-full h-[88vh]">
+      <div className="mx-auto py-4 bg-slate-100 flex w-full h-[88vh] relative">
         <SideBar />
-        <div className="w-full bg-primary-900 ml-4 rounded-sm border-0">
-          <div className="flex justify-center items-center stats rounded-none bg-primary-content">
+        <div className="w-full bg-slate-100 mx-4 rounded-sm border-0">
+          <div className="flex justify-center items-center stats bg-primary-content">
             <div className="w-48 h-48 m-4 mr-8 text-center stat bg-secondary-content rounded-md">
               <div className="stat-title text-2xl h-fit">Temperatures</div>
               <div className="stat-value text-4xl h-fit">
@@ -161,9 +168,9 @@ const HomePage = () => {
             />
           </div>
 
-          <div>
+          <div className="absolute left-58 bottom-4">
             <select
-              className="bg-accent border-0 rounded-sm focus-visible:outline-double outline-gray-400"
+              className="bg-slate-200 border-0 rounded-sm focus-visible:outline-double outline-gray-400"
               name="blockSize"
               id="blockSize"
               value={block}

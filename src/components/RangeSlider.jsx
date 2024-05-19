@@ -19,7 +19,10 @@ export default function RangeSlider({
         onMouseUp={mouseUp}
         disabled={!enable}
       />
-      <label className="block uppercase text-lg" htmlFor={toString(slidername)}>
+      <label
+        className="block uppercase text-2xl font-medium text-gray-600 tracking-wide m-2"
+        htmlFor={toString(slidername)}
+      >
         {slidername}
       </label>
     </div>
