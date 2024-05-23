@@ -7,6 +7,7 @@ import Numpad from "../components/Numpad";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { io } from "socket.io-client";
 
 // Debounce function
 function debounce(func, wait) {
@@ -44,7 +45,16 @@ export default function ControlPage() {
       });
     };
 
+    const socket = io("http://localhost:3000");
+    socket.on("SENSOR-EVENT", () => {
+      fetchData();
+    });
+
     fetchData();
+
+    return () => {
+      socket.disconnect();
+    };
   }, []);
 
   const handleClickLight = () => {
