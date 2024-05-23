@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function Numpad() {
-  const [password, setPassword] = useState("");
+export default function Numpad({ pwd, setPwd, handleEnterClick }) {
+  // const [password, setPassword] = useState("");
+  const password = pwd;
+  const setPassword = setPwd;
 
   const handleNumberClick = (number) => {
     if (password.length < 6) {
@@ -11,17 +13,15 @@ export default function Numpad() {
     }
   };
 
-  const handleEnterClick = () => {
-    // Handle enter button click here
-    console.log("Entered password:", password);
-  };
-
   const handleEraseClick = () => {
     setPassword("");
   };
 
   return (
     <div className="text-4xl">
+      <div className="text-2xl uppercase font-semibold text-gray-600/75">
+        Door locking
+      </div>
       <div className="bg-white w-full border border-slate-800 rounded-md h-12 text-slate-900 tracking-widest">
         {password}
       </div>

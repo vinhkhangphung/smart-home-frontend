@@ -1,6 +1,10 @@
 export default function LightColor({ lightColor, handleRadioChange, lightOn }) {
+  const textClassname = lightOn
+    ? "text-lg uppercase font-medium tracking-tight"
+    : "text-lg uppercase font-medium tracking-tight text-gray-400";
+
   return (
-    <div className="flex justify-evenly">
+    <div className="flex justify-evenly w-full pl-4">
       <div>
         <input
           type="radio"
@@ -11,7 +15,7 @@ export default function LightColor({ lightColor, handleRadioChange, lightOn }) {
           onChange={handleRadioChange}
           disabled={!lightOn}
         />
-        <div className="text-xl uppercase font-medium tracking-tight">Red</div>
+        <div className={textClassname}>Red</div>
       </div>
       <div>
         <input
@@ -23,7 +27,7 @@ export default function LightColor({ lightColor, handleRadioChange, lightOn }) {
           onChange={handleRadioChange}
           disabled={!lightOn}
         />
-        <div className="text-xl uppercase font-medium tracking-tight">Blue</div>
+        <div className={textClassname}>Blue</div>
       </div>
       <div>
         <input
@@ -35,9 +39,7 @@ export default function LightColor({ lightColor, handleRadioChange, lightOn }) {
           onChange={handleRadioChange}
           disabled={!lightOn}
         />
-        <div className="text-xl uppercase font-medium tracking-tight">
-          Green
-        </div>
+        <div className={textClassname}>Green</div>
       </div>
     </div>
   );

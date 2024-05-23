@@ -6,10 +6,15 @@ export default function RangeSlider({
   mouseUp,
   enable,
 }) {
+  const rangeColor = enable
+    ? "range range-sm range-success border-2 border-black/20"
+    : "range range-sm [--range-shdw:gray]";
+
   return (
-    <div>
+    <div className="w-3/5">
       <input
         type="range"
+        className={rangeColor}
         min="0"
         id={toString(slidername)}
         max="100"
@@ -20,7 +25,7 @@ export default function RangeSlider({
         disabled={!enable}
       />
       <label
-        className="block uppercase text-2xl font-medium text-gray-600 tracking-wide m-2"
+        className="block uppercase text-xl font-medium text-gray-600 tracking-wide m-2"
         htmlFor={toString(slidername)}
       >
         {slidername}
