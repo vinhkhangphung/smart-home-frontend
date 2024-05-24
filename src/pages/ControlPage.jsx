@@ -46,7 +46,7 @@ export default function ControlPage() {
     };
 
     const socket = io("http://localhost:3000");
-    socket.on("SENSOR-EVENT", () => {
+    socket.on("SENSOR_EVENT", () => {
       fetchData();
     });
 

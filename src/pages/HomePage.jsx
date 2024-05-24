@@ -52,7 +52,7 @@ const HomePage = () => {
     fetchDataAndProcess(block * 10);
 
     const socket = io("http://localhost:3000");
-    socket.on("SENSOR-EVENT", () => {
+    socket.on("SENSOR_EVENT", () => {
       fetchDataAndProcess(block * 10);
     });
 
@@ -74,8 +74,6 @@ const HomePage = () => {
     setSeries((prevSeries) => [{ ...prevSeries[0], data: res }]);
 
     const timestamps = generateTimestamps();
-    console.log(max("max: ", res), min("min: ", res));
-    console.log("res: ", res);
     const newOptions = chartOptions(timestamps, block, max(res), min(res));
 
     setOptions(newOptions);
