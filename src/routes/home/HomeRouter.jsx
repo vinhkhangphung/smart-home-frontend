@@ -4,6 +4,7 @@ import HomePage from "../../pages/HomePage";
 import ControlPage from "../../pages/ControlPage";
 import AccountPage from "../../pages/AccountPage";
 import LandingPage from "../../pages/LandingPage";
+import LoginPage from "../../pages/LoginPage";
 
 export default function HomeRouter() {
   return (
@@ -13,7 +14,8 @@ export default function HomeRouter() {
       <Route path="about" element={<AboutPage />} />
       <Route path="control" element={<ControlPage />} />
       <Route path="account" element={<AccountPage />} />
-      <Route path="login" element={<LandingPage/>} />
+      <Route path="landing" element={<LandingPage/>} />
+      <Route path="login" element={<LoginPage/>} />
     </Routes>
   );
 }

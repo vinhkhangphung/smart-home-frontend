@@ -2,15 +2,23 @@ import React from "react";
 import logo from "../assets/logo-app.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom"
+
+
+
 
 export default function Header() {
   const { user, login, logout } = useAuth();
 
+  const navigate = useNavigate();
+
   const handleLogin = () => {
+    navigate("/login");
     login({ username: "username", password: "password" });
   };
 
   const handleLogOut = () => {
+    navigate("/landing");
     logout();
   };
 
