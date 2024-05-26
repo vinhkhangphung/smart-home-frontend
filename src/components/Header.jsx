@@ -7,18 +7,25 @@ import { useNavigate } from "react-router-dom"
 
 
 
-export default function Header() {
+export default function Header(prop) {
+  const {loggedIn}= prop
   const { user, login, logout } = useAuth();
 
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate("/login");
+    if (loggedIn) {
+      localStorage.removeItem('user')
+      props.setLoggedIn(false)
+    } else {
+      navigate('/login')
+    }
+    
     login({ username: "username", password: "password" });
   };
 
   const handleLogOut = () => {
-    navigate("/landing");
+    navigate("/login");
     logout();
   };
 

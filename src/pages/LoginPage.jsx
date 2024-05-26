@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './css/Login.css'
+import { set } from 'lodash'
 
-const Login = (props) => {
+
+const Login = ({setLoggedIn,setLoggedOut}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
@@ -10,8 +12,64 @@ const Login = (props) => {
 
   const navigate = useNavigate()
 
+  setLoggedOut(false)
+
   const onButtonClick = () => {
-    navigate('/home')
+    // navigate('/home')
+    checkAccountExists((accountExists) => {
+        // If yes, log in
+        if (accountExists) {
+            logIn()
+            
+        }
+        // Else, ask user if they want to create a new account and if yes, then log in
+        // else if (
+        //   window.confirm(
+        //     'An account does not exist with this email address: ' + email + '. Do you want to create a new account?',
+        //   )
+        // ) {
+        //   logIn()
+        // }
+      })
+  }
+
+  const checkAccountExists = (callback) => {
+    fetch('http://localhost:3080/check-account', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((r) => r.json())
+      .then((r) => {
+        callback(r?.userExists)
+      })
+  }
+
+  const logIn = () => {
+    fetch('http://localhost:3080/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((r) => r.json())
+      .then((r) => {
+        if ('success' === r.message) {
+          localStorage.setItem('user', JSON.stringify({ email }))
+          // console.log(typeof setLoggedIn)
+          setLoggedIn(true)
+          
+          console.log('Logged in')
+        //   props.setEmail(email)
+          navigate('/home')
+        } else {
+          window.alert('Wrong email or password')
+          
+        }
+      })
   }
 
   return (
