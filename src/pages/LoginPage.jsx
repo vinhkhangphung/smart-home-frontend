@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './css/Login.css'
 import { set } from 'lodash'
+import { useAuth } from '../context/AuthContext'
 
 
-const Login = ({setLoggedIn,setLoggedOut}) => {
+const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
+  const { user, login, logout } = useAuth();
 
   const navigate = useNavigate()
-
-  setLoggedOut(false)
 
   const onButtonClick = () => {
     // navigate('/home')
@@ -59,11 +59,10 @@ const Login = ({setLoggedIn,setLoggedOut}) => {
       .then((r) => {
         if ('success' === r.message) {
           localStorage.setItem('user', JSON.stringify({ email }))
-          // console.log(typeof setLoggedIn)
-          setLoggedIn(true)
+          // setLoggedIn(true)
+          login({ username: "username", password: "password" });
           
           console.log('Logged in')
-        //   props.setEmail(email)
           navigate('/home')
         } else {
           window.alert('Wrong email or password')

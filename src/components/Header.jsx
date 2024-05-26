@@ -21,11 +21,11 @@ export default function Header(prop) {
       navigate('/login')
     }
     
-    login({ username: "username", password: "password" });
+    // login({ username: "username", password: "password" });
   };
 
   const handleLogOut = () => {
-    navigate("/login");
+    navigate("/landing");
     logout();
   };
 
