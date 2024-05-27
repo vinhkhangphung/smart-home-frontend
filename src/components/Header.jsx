@@ -1,28 +1,16 @@
-import React from "react";
 import logo from "../assets/logo-app.png";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom"
+import { GoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 
 
 
-
-export default function Header(prop) {
-  const {loggedIn}= prop
+export default function Header(props) {
   const { user, login, logout } = useAuth();
 
   const navigate = useNavigate();
-
-  const handleLogin = () => {
-    if (loggedIn) {
-      localStorage.removeItem('user')
-      props.setLoggedIn(false)
-    } else {
-      navigate('/login')
-    }
-    
-    // login({ username: "username", password: "password" });
-  };
 
   const handleLogOut = () => {
     navigate("/landing");
@@ -66,9 +54,30 @@ export default function Header(prop) {
             Log Out
           </a>
         ) : (
-          <a className="btn btn-primary w-24 text-lg" onClick={handleLogin}>
-            Log In
-          </a>
+          <GoogleLogin
+            onSuccess={async (credentialResponse) => {
+              const response = await axios.post(`http://localhost:3000/auth/login`, {
+                idToken: credentialResponse.credential,
+              });
+
+              const token = response.data.payload.token;
+
+              const myProfileResponse = await axios.get(`http://localhost:3000/me`, {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              });
+
+              localStorage.setItem('token', token);
+              login(myProfileResponse.data.payload)
+
+              navigate('/')
+            }}
+            onError={() => {
+              console.log('Login Failed');
+            }}
+            useOneTap
+          />
         )}
       </div>
     </div>
