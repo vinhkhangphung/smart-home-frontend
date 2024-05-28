@@ -5,9 +5,13 @@ import Footer from "../components/Footer";
 import { useAuth } from "../context/AuthContext";
 import LandingPage from "../pages/LandingPage";
 import AboutPage from "../pages/AboutPage";
+import LoginPage from "../pages/LoginPage";
+import { useState } from 'react';
+import { useCallback } from 'react';
 
 export default function AppRoute() {
   const { user } = useAuth();
+
   return (
     <>
       <Header />
@@ -18,6 +22,7 @@ export default function AppRoute() {
         ) : (
           <>
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/*" element={<LandingPage />} />
           </>
         )}

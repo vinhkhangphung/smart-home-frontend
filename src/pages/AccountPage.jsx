@@ -12,10 +12,10 @@ const AccountPage = () => {
           <div className="avatar w-full">
             <div className="w-40 mask mask-squircle relative">
               <div className="absolute inset-0 bg-black/20"></div>
-              <img src="https://picsum.photos/200/300" />
+              <img src={user.picture} />
             </div>
             <div className="text-black font-medium text-6xl pl-8 pt-4 h-36 w-2/3">
-              Hello, {user.username}
+              Hello, {user.name}
             </div>
           </div>
           <div className="collapse bg-blue-400/[.6] pl-2">
@@ -25,7 +25,7 @@ const AccountPage = () => {
             </div>
             <div className="collapse-content">
               <div className="font-semibold text-lg bg-stone-300 w-fit p-2 rounded-md text-gray-700">
-                {user.username}
+                {user.name}
               </div>
               <button className="mt-4">edit</button>
             </div>
@@ -37,7 +37,7 @@ const AccountPage = () => {
             </div>
             <div className="collapse-content">
               <div className="font-semibold text-lg bg-stone-300 w-fit p-2 rounded-md text-gray-700">
-                {user.username}
+                {user.email}
               </div>
               <button className="mt-4">edit</button>
             </div>
