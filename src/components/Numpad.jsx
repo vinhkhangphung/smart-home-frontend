@@ -18,8 +18,8 @@ export default function Numpad({ pwd, setPwd, handleEnterClick }) {
   };
 
   return (
-    <div className="text-4xl">
-      <div className="text-2xl uppercase font-semibold text-gray-600/75">
+    <div className="text-2xl lg:text-4xl ml-4 lg:ml-0">
+      <div className="text-xl lg:text-2xl uppercase font-semibold text-gray-600/75">
         Door locking
       </div>
       <div className="bg-white w-full border border-slate-800 rounded-md h-12 text-slate-900 tracking-widest">
@@ -93,13 +93,13 @@ export default function Numpad({ pwd, setPwd, handleEnterClick }) {
           0
         </button>
         <button
-          className="absolute left-0 top-4 text-5xl"
+          className="absolute left-0 top-4 lg:text-5xl text-3xl"
           onClick={() => handleEraseClick()}
         >
           ⌫
         </button>
         <button
-          className="absolute right-0 text-8xl h-min"
+          className="absolute right-0 lg:text-8xl text-6xl h-min"
           onClick={() => handleEnterClick()}
         >
           ⏎

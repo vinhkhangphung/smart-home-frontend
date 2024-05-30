@@ -12,6 +12,12 @@ export default function RangeSlider({
 
   return (
     <div className="w-3/5">
+      <label
+        className="block uppercase text-xl sm:text-lg font-medium text-gray-600 tracking-wide m-2 sm:m-0 pb-2"
+        htmlFor={toString(slidername)}
+      >
+        {slidername}
+      </label>
       <input
         type="range"
         className={rangeColor}
@@ -24,12 +30,6 @@ export default function RangeSlider({
         onMouseUp={mouseUp}
         disabled={!enable}
       />
-      <label
-        className="block uppercase text-xl font-medium text-gray-600 tracking-wide m-2"
-        htmlFor={toString(slidername)}
-      >
-        {slidername}
-      </label>
     </div>
   );
 }
